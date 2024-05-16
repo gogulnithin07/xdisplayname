@@ -14,6 +14,7 @@ function App() {
   }
   return (
     <div className="App">
+      <h1>Full Name Display</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div>
           <label>First name: </label>
@@ -26,7 +27,7 @@ function App() {
         <button type="submit">submit</button>
       </form>
       <p>
-        Full name:{firstName} {lastName}
+        Full Name: {firstName} {lastName}
       </p>
     </div>
   );
