@@ -7,10 +7,8 @@ function App() {
     e.preventDefault();
     const first = e.target.firstname.value;
     const last = e.target.lastname.value;
-    setFirstName((c) => first);
-    setlastName((c) => last);
-    e.target.firstname.value = "";
-    e.target.lastname.value = "";
+    setFirstName((c) => first.trim());
+    setlastName((c) => last.trim());
   }
   return (
     <div className="App">
@@ -18,17 +16,20 @@ function App() {
       <form onSubmit={(e) => handleSubmit(e)}>
         <div>
           <label>First name: </label>
-          <input name="firstname" type="text" required />
+          <input id="firstname" name="firstname" type="text" required />
         </div>
         <div>
           <label>last name: </label>
-          <input id="lastname" type="text" required />
+          <input id="lastname" name="lastname" type="text" required />
         </div>
-        <button type="submit">submit</button>
+        <button type="submit">Submit</button>
       </form>
-      <p>
-        Full Name: {firstName} {lastName}
-      </p>
+
+      {firstName && lastName && (
+        <p>
+          Full Name: {firstName} {lastName}
+        </p>
+      )}
     </div>
   );
 }
